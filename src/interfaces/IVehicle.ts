@@ -7,7 +7,7 @@ const vehicleSchema = z.object({
 
   year: z.number({
     invalid_type_error: 'Deve ser um numero',
-  }).min(1990, { message: 'Deve ser maior ou igual a 1900' })
+  }).min(1900, { message: 'Deve ser maior ou igual a 1900' })
     .max(2022, { message: 'Deve ser menor ou igual a 2022' }),
 
   color: z.string({
