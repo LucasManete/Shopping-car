@@ -91,6 +91,7 @@ describe('Car sevices', () => {
   const carModel = new CarModel();
   const carService = new CarService(carModel);
 before(async () => {
+  sinon.stub(carModel, 'readOne').resolves(carMock);
   sinon.stub(carModel, 'delete').resolves(carMock);
 });
 
@@ -101,7 +102,7 @@ after(()=>{
 describe('delete a cars', () => {
   it('Sucesso', async () => {
       const deletedCar = await carService.delete("4edd40c86762e0fb12000003");
-      expect(deletedCar).to.be.deep.equal(deleteMock)
+      expect(deletedCar).to.be.deep.equal(carMock)
   })
 });
 });
